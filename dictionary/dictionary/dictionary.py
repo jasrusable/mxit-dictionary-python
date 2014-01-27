@@ -1,6 +1,7 @@
 import nltk
 from nltk.corpus import wordnet
 
+nltk.download('wordnet')
 
 class Dictionary(object):
 	def lookup_word(self, word):
