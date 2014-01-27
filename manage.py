@@ -7,7 +7,7 @@ manager = Manager(app)
 
 @manager.command
 def test():
-	nose.main(argv=['dictionary'])
+	nose.main(argv=['dictionary', '--failed'])
 
 def main():
 	manager.run()
