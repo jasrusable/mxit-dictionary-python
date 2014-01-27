@@ -1,7 +1,3 @@
-wercker/python defined in wercker.yml.
-Wercker wercker_python version 0.0.12
-
-Used default YAML:
 box: wercker/python
 # Build definition
 build:
