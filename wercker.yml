@@ -14,6 +14,6 @@ build:
           pip install -r requirements.txt --allow-external twill   --allow-insecure  twill
 
     - script:
-        name: echo python information
+        name: run tests
         code: |
           python manage.py test
