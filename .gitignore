@@ -43,3 +43,6 @@ mxit-dict-python.sublime-project
 
 # nose test id file
 .noseids
+
+# vim swap files
+*.swp
