@@ -40,3 +40,6 @@ nosetests.xml
 
 mxit-dict-python.sublime-workspace
 mxit-dict-python.sublime-project
+
+# nose test id file
+.noseids
