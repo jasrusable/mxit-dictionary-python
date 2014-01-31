@@ -39,3 +39,4 @@ nosetests.xml
 .pydevproject
 
 mxit-dict-python.sublime-workspace
+mxit-dict-python.sublime-project
