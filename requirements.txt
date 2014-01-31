@@ -16,7 +16,7 @@ audioread==0.6
 chardet==2.0.1
 cups==1.0
 defer==1.0.6
-distribute==0.6.*
+distribute
 feedparser==5.1.2
 fpconst==0.7.2
 httplib2==0.7.4
