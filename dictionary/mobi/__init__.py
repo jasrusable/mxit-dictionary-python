@@ -1,11 +1,15 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, render_template
 from dictionary import dictionary_instance
+from dictionary.mobi import resources as r
 
-blueprint = Blueprint('mobi', __name__)
+blueprint = Blueprint('mobi', __name__, template_folder='templates')
 
 @blueprint.route('/')
 def index():
-	return 'Enter a word to search for:'
+	res = render_template('index.html',
+		welcome_message_text=r.index.welcome_message_text,
+	)
+	return res
 
 @blueprint.route('/lookup_word')
 def lookup_word():
