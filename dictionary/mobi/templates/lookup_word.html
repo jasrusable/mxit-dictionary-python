@@ -1,5 +1,8 @@
 <html>
 	<body>
+		<b>
+			{{ defined_word }}
+		</b>
 		<ul>
 			{% for definition in definitions %}
 				<li>
@@ -7,6 +10,9 @@
 				</li>
 			{% endfor %}
 		</ul>
+		<p>
+			{{ lookup_new_word_text }}
+		</p>
 		<form action="{{ url_for('mobi.lookup_word') }}"> 
 			<input name="word"/>
 			<input type="submit"></input>

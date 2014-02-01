@@ -1,0 +1,1 @@
+lookup_new_word_text = u"Enter a new word to look up:"

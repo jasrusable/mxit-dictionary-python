@@ -3,6 +3,7 @@ from flask import url_for
 from dictionary import app
 from mock import Mock, patch
 from bs4 import BeautifulSoup
+from dictionary.mobi import resources as r
 
 
 class TestLookupWord(TestCase):
@@ -46,3 +47,20 @@ class TestLookupWord(TestCase):
 				self.assertIsNotNone(soup.form.input)
 				self.assertEqual(soup.form.input['name'], 'word')
 				self.assertIsNotNone(soup.form.find('input', type='submit'))
+
+	def test_lookup_new_word_text(self):
+		with Twill(self.app, port=5000) as t:
+			with patch('dictionary.mobi.dictionary_instance') as mock_dictionary:
+				mock_dictionary.lookup_word = Mock(return_value=[])
+				t.browser.go(t.url(url_for('mobi.lookup_word')))
+				soup = BeautifulSoup(t.browser.get_html())
+				self.assertEqual(unicode(soup.p.string).strip(), r.lookup_word.lookup_new_word_text)
+
+	def test_defined_word(self):
+		with Twill(self.app, port=5000) as t:
+			word = 'hello'
+			with patch('dictionary.mobi.dictionary_instance') as mock_dictionary:
+				mock_dictionary.lookup_word = Mock(return_value=[])
+				t.browser.go(t.url(url_for('mobi.lookup_word', word=word)))
+				soup = BeautifulSoup(t.browser.get_html())
+				self.assertEqual(unicode(soup.b.string.strip()), word)
