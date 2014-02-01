@@ -29,4 +29,4 @@ class TestIndex(TestCase):
 			self.assertEqual(action, url_for('mobi.lookup_word')) 
 			self.assertIsNotNone(soup.form.input)
 			self.assertEqual(soup.form.input['name'], 'word')
-			self.assertIsNotNone(soup.form.submit)
+			self.assertIsNotNone(soup.form.find('input', type='submit'))
