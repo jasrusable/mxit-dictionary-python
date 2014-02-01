@@ -32,3 +32,17 @@ class TestLookupWord(TestCase):
 				soup = BeautifulSoup(t.browser.get_html())
 				results = [unicode(result_element.string.strip()) for result_element in soup.ul.find_all('li')]
 				self.assertEquals(results, test_definitions )
+
+	def test_lookup_form(self):
+		with Twill(self.app, port=5000) as t:
+			with patch('dictionary.mobi.dictionary_instance') as mock_dictionary:
+				mock_dictionary.lookup_word = Mock(return_value=[])
+				t.browser.go(t.url(url_for('mobi.lookup_word')))
+				soup = BeautifulSoup(t.browser.get_html())
+				self.assertIsNotNone(soup.form)
+				action = soup.form['action']
+				self.assertIsNotNone(action)
+				self.assertEqual(action, url_for('mobi.lookup_word')) 
+				self.assertIsNotNone(soup.form.input)
+				self.assertEqual(soup.form.input['name'], 'word')
+				self.assertIsNotNone(soup.form.find('input', type='submit'))

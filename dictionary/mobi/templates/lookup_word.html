@@ -7,5 +7,9 @@
 				</li>
 			{% endfor %}
 		</ul>
+		<form action="{{ url_for('mobi.lookup_word') }}"> 
+			<input name="word"/>
+			<input type="submit"></input>
+		</form>
 	</body>
 </html>
