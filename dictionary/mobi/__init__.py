@@ -15,4 +15,4 @@ def index():
 def lookup_word():
 	word = request.args.get('word')
 	definitions = dictionary_instance.lookup_word(word)
-	return ''.join(definitions)
+	return render_template('lookup_word.html', definitions=definitions)
