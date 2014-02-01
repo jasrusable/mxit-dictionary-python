@@ -10,7 +10,7 @@ class TestLookupWord(TestCase):
 		app.config['TESTING'] = True
 		return app
 
-	def test_definitions(self):
+	def test_calls_lookup_word(self):
 		def check(word, defs):
 			with patch('dictionary.mobi.dictionary_instance') as mock_dictionary:
 				mock_dictionary.lookup_word = Mock(return_value=defs)
