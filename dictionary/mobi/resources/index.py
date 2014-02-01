@@ -1,1 +1,1 @@
-welcome_message_text = u"HEllooo"
+welcome_message_text = u"Welcome to Awesome Dictionary, enter a word to define:"
