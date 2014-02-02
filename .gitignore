@@ -13,7 +13,7 @@ dist
 build
 eggs
 parts
-bin
+#bin
 var
 sdist
 develop-eggs
@@ -47,3 +47,4 @@ mxit-dict-python.sublime-project
 # vim swap files
 *.swp
 *.sublime-workspace 
+*.tar.gzip*
