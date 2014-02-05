@@ -1,16 +1,13 @@
 import nltk
 from nltk.corpus import wordnet
+import json
+import gzip
 import os
 
 class Dictionary(object):
 	def __init__(self):
-		if 'CI' not in os.environ:
-			try:
-				wordnet.synsets('word')
-			except:
-				nltk.download('wordnet')
-		else:
-			print ("Dictionary running in CI mode.")
+		f = gzip.open('dictionary.json.gzip', 'r')
+		self.dictionary = json.load(f)
 
 	def lookup_word(self, word):
-		return [synset.definition for synset in wordnet.synsets(word)]
+		return self.dictionary.get(word.lower())

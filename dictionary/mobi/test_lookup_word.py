@@ -54,7 +54,7 @@ class TestLookupWord(TestCase):
 				mock_dictionary.lookup_word = Mock(return_value=[])
 				t.browser.go(t.url(url_for('mobi.lookup_word')))
 				soup = BeautifulSoup(t.browser.get_html())
-				self.assertEqual(unicode(soup.p.string).strip(), r.lookup_word.lookup_new_word_text)
+				self.assertEqual(unicode(soup.find(id='lookup_new_word_text').string).strip(), r.lookup_word.lookup_new_word_text)
 
 	def test_defined_word(self):
 		with Twill(self.app, port=5000) as t:
@@ -64,3 +64,5 @@ class TestLookupWord(TestCase):
 				t.browser.go(t.url(url_for('mobi.lookup_word', word=word)))
 				soup = BeautifulSoup(t.browser.get_html())
 				self.assertEqual(unicode(soup.b.string.strip()), word)
+
+

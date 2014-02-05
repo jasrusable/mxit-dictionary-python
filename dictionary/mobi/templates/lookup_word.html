@@ -4,13 +4,17 @@
 			{{ defined_word }}
 		</b>
 		<ul>
-			{% for definition in definitions %}
-				<li>
-					{{ definition }}
-				</li>
-			{% endfor %}
+			{% if definitions %}
+				{% for definition in definitions %}
+					<li>
+						{{ definition }}
+					</li>
+				{% endfor %}
+			{% else %}
+				<p> No definition of {{ defined_word }}</p>
+			{% endif %}
 		</ul>
-		<p>
+		<p id='lookup_new_word_text'>
 			{{ lookup_new_word_text }}
 		</p>
 		<form action="{{ url_for('mobi.lookup_word') }}"> 

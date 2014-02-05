@@ -7,8 +7,8 @@ def build_dictionary():
 	for synset in wordnet.all_synsets():
 		for lemma in synset.lemmas:
 			if lemma.name not in dictionary:
-				dictionary[lemma.name] = [synset.definition]
+				dictionary[lemma.name.lower()] = [synset.definition]
 			else:
-				dictionary[lemma.name].append(synset.definition)
+				dictionary[lemma.name.lower()].append(synset.definition)
 
 	json.dump(dictionary, gzip.open('dictionary.json.gzip', 'w'))
