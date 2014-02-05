@@ -6,8 +6,14 @@ import os
 
 class Dictionary(object):
 	def __init__(self):
-		f = gzip.open('dictionary.json.gzip', 'r')
-		self.dictionary = json.load(f)
+		if 'CI' not in os.environ:
+ 			try:
+				f = gzip.open('dictionary.json.gzip', 'r')
+				self.dictionary = json.load(f)
+ 			except:
+ 				pass
+		else:
+			self.dictionary = []
 
 	def lookup_word(self, word):
 		return self.dictionary.get(word.lower())
