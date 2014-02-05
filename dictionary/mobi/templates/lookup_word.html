@@ -1,0 +1,25 @@
+<html>
+	<body>
+		<b>
+			{{ defined_word }}
+		</b>
+		<ul>
+			{% if definitions %}
+				{% for definition in definitions %}
+					<li>
+						{{ definition }}
+					</li>
+				{% endfor %}
+			{% else %}
+				<p> No definition of {{ defined_word }}</p>
+			{% endif %}
+		</ul>
+		<p id='lookup_new_word_text'>
+			{{ lookup_new_word_text }}
+		</p>
+		<form action="{{ url_for('mobi.lookup_word') }}"> 
+			<input name="word"/>
+			<input type="submit"></input>
+		</form>
+	</body>
+</html>

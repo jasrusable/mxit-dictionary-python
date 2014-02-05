@@ -1,0 +1,19 @@
+box: wercker/python
+# Build definition
+build:
+  # The steps that will be executed on build
+  steps:
+    # A step that sets up the python virtual environment
+    - virtualenv:
+        name: setup virtual environment
+
+    # A step that executes `pip install` command.
+    - script:
+        name: pip install
+        code: |
+          pip install -r requirements.txt --allow-external twill   --allow-insecure  twill
+
+    - script:
+        name: run tests
+        code: |
+          python manage.py test

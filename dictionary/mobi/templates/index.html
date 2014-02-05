@@ -1,0 +1,11 @@
+<html>
+	<body>
+		<p>
+			{{ welcome_message_text }}
+		</p>
+		<form action="{{ url_for('mobi.lookup_word') }}"> 
+			<input name="word"/>
+			<input type="submit"></input>
+		</form>
+	</body>
+</html>	
