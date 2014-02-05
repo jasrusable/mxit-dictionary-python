@@ -7,11 +7,8 @@ import os
 class Dictionary(object):
 	def __init__(self):
 		if 'CI' not in os.environ:
- 			try:
-				f = gzip.open('dictionary.json.gzip', 'r')
-				self.dictionary = json.load(f)
- 			except:
- 				pass
+			f = gzip.open('dictionary.json.gzip', 'r')
+			self.dictionary = json.load(f)
 		else:
 			self.dictionary = []
 
