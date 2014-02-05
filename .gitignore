@@ -47,4 +47,4 @@ mxit-dict-python.sublime-project
 # vim swap files
 *.swp
 *.sublime-workspace 
-*.tar.gzip*
+*gzip*
